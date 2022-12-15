@@ -9,6 +9,9 @@ const {getProductById} = require("../controllers/products/getProductById")
 const {getProductsOnSale} = require("../controllers/products/getProductsOnSale")
 const {getProductsByCategory} = require("../controllers/products/getProductsByCategory")
 const {getSearchedProducts} = require ("../controllers/products/getSearchedProducts")
+const {getLowertoHigherPriceProducts} = require("../controllers/products/getLowertoHigherPriceProducts")
+const {getHigherToLowerPriceProducts} = require("../controllers/products/getHigherToLowerPriceProducts")
+
 const {getAllUsers} = require("../controllers/users/getAllUsers")
 const {getUserById} = require("../controllers/users/getUserById")
 const {checkout} = require("../controllers/mercado-pago/checkout")
@@ -80,6 +83,9 @@ router.get("/products/:id", getProductById);
 router.get("/onsale", getProductsOnSale);
 router.get("/category/:category", getProductsByCategory);
 router.post("/search/:query", getSearchedProducts);
+router.get("/low-to-high-price-products", getLowertoHigherPriceProducts)
+router.get("/high-to-low-price-products", getHigherToLowerPriceProducts)
+
 router.get("/users", getAllUsers);
 router.get("/users/:id", getUserById);
 router.post("/checkout", checkout)
