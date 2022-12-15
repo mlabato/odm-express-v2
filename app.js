@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-
-const apiRouter = require("./routers/apiRouter")
+const router = require("./routes")
 
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
@@ -17,8 +16,8 @@ const publicPath = path.resolve(__dirname, "./public");
 app.use(express.static(publicPath)); 
 
 //SERVIDOR LEVANTADO
-app.listen(3000, () =>{
-    console.log("http://localhost:3000");
+app.listen(process.env.PORT || 3000, () =>{
+  console.log("http://localhost:3000");
 }); 
 
 //GUARDADO OBJETOS QUE VIENEN POR POST COMO OBJETOS LITERALES EN JSON
@@ -30,4 +29,4 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method')); 
 
 //ENRUTADORES
-app.use("/", apiRouter);
+app.use("/", router);
