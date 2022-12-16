@@ -1,6 +1,13 @@
 const db = require("../../database/models");
 
-const getAllProducts = (req,res) => {
+const getAllProducts = async (req,res) => {
+
+  const categoriesResponse = await db.Category.findAll();
+
+  const categories = categoriesResponse.map((category) => {
+    return category.dataValues;
+  });
+
   db.Product.findAll()
     .then((products) => {
       
@@ -22,7 +29,8 @@ const getAllProducts = (req,res) => {
       });
       res.json({
         totalProducts: products.length,
-        categories: {
+        categories: categories,
+        productsByCategories: {
           mates:
             " " + products.filter((product) => product.category_id == 1).length,
           materas:
