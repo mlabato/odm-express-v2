@@ -1,4 +1,5 @@
 const db = require("../../database/models");
+const Op = db.Sequelize.Op;
 
 const getSearchedProducts = (req, res) => {
   db.Product.findAll({
