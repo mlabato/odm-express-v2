@@ -22,7 +22,7 @@ const getProductsByCategory = async (req, res) => {
   );
 
   if (categoryProducts !== []) {
-    return res.status(201).json({ category: categoryProducts });
+    return res.status(201).json({ products: categoryProducts });
   } else {
     return res.status(201).json({ message: "No existen productos para dicha categoría" });
   }
