@@ -11,7 +11,7 @@ const getLowertoHigherPriceProducts = async (req, res) => {
     return a.price - b.price;
   });
 
-  return res.status(201).json({ orderedProducts: orderedProducts });
+  return res.status(201).json({ products: orderedProducts });
 };
 
 module.exports = { getLowertoHigherPriceProducts };

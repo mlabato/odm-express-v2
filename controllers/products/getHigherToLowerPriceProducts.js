@@ -11,7 +11,7 @@ const getHigherToLowerPriceProducts = async (req, res) => {
     return b.price - a.price;
   });
 
-  return res.status(201).json({ orderedProducts: orderedProducts });
+  return res.status(201).json({ products: orderedProducts });
 };
 
 module.exports = { getHigherToLowerPriceProducts };
