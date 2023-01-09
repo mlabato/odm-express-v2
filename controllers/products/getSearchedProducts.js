@@ -17,7 +17,7 @@ const getSearchedProducts = (req, res) => {
           model: product.model,
           discount: product.discount,
           stock: product.stock,
-          image: "http://localhost:3000/images/productImages/" + product.image,
+          image: product.image,
           virola: product.virola_id,
           color: product.color_id,
           material: product.material_id,
